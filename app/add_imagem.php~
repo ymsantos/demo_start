@@ -1,0 +1,26 @@
+<?php
+include 'conexao.php';
+
+class AddImg {
+	protected $nome;
+	protected $id;
+	
+	public function setnome($nome) {
+		$this->nome = $nome;
+	}
+	
+	public function setid($id) {
+		$this->id = $id;
+	}
+	
+	public function criar() {
+		$con = new Conexao;
+
+		$con->criar();
+		$con->selecionar();
+		$con->executar("update fotos set selecionada = 1 where id = '$id';");
+		$con->fechar();
+	}
+}
+?>
+
